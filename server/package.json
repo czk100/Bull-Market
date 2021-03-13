@@ -1,0 +1,25 @@
+{
+  "name": "bull-market",
+  "version": "1.0.0",
+  "description": "Bull Market Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "node ___",
+    "dev": "node both?"
+  },
+  "author": "Colin Kubisiak",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^6.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.19"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
