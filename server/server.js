@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const items = require('./routes/api/items');
+const announcements = require('./routes/api/announcements');
 
 const app = express();
 
@@ -25,6 +26,7 @@ mongoose
     .catch(err => console.log(err));
 
 app.use('/api/items', items);
+app.use('/api/announcements', announcements);
 
 //port configuration
 const port = process.env.PORT || 5000;
