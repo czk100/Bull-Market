@@ -8,7 +8,7 @@ function Home() {
     <div class="home-container">
       <h1 class="display-3">Home</h1>
       <img class="img_fluid" src={"./logo.png"} alt="UFSIC Logo" />
-      <div>
+      <div className="bodyTextEditable">
         <TextLoader />
       </div>
     </div>

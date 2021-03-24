@@ -2,3 +2,8 @@
   margin-top: 2%;
   text-align: center;
 }
+
+.bodyTextEditable {
+  white-space: pre-line;
+  text-align: center;
+}

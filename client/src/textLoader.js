@@ -16,6 +16,7 @@ function TextLoader() {
       })
       .then(function (myJson) {
         console.log(myJson);
+        myJson.body.replaceAll("\n", <br />);
         setData(myJson);
       });
   };
@@ -27,6 +28,7 @@ function TextLoader() {
   return (
     <div className="TextLoader">
       {data && data.length > 0 && data.map((item) => <p>{item.about}</p>)}
+      <div>{data.body}</div>
     </div>
   );
 }
