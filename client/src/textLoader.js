@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from "react";
+const axios = require("axios");
 
 function TextLoader() {
   const [data, setData] = useState([]);
   const TextLoad = () => {
     //we need to use a fetch here
-    fetch("./TestData.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
+    axios
+      .get("http://localhost:5000/api/editTexts")
       .then(function (response) {
         console.log(response);
-        return response.json();
+        return response.data;
       })
       .then(function (myJson) {
         console.log(myJson);
-        myJson.body.replaceAll("\n", <br />);
-        setData(myJson);
+        var temp;
+        for (var i = 0; i < myJson.length; i++) {
+          if (myJson[i].name === "name3") {
+            temp = myJson[i];
+          }
+        }
+        setData(temp);
       });
   };
 
@@ -28,7 +30,7 @@ function TextLoader() {
   return (
     <div className="TextLoader">
       {data && data.length > 0 && data.map((item) => <p>{item.about}</p>)}
-      <div>{data.body}</div>
+      <div>{data.content}</div>
     </div>
   );
 }

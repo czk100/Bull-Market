@@ -1,7 +1,7 @@
 import "./App.css";
 import "./Home.css";
 import React from "react";
-import TextLoader from "./textLoader.js";
+import TextLoader from "./TextLoader.js";
 
 function Home() {
   return (

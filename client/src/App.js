@@ -9,6 +9,7 @@ import ExecBoard from "./ExecBoard";
 import Socials from "./Social";
 import FAQ from "./FAQ";
 import Login from "./Login";
+import axios from "axios";
 
 function App() {
   return (
