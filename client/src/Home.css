@@ -1,38 +1,9 @@
-body {
-  background-color: white;
+.home-container {
+  margin-top: 2%;
+  text-align: center;
 }
 
-.btn {
-  color: black;
-  background-color: blanchedalmond;
-}
-
-.btn-headers {
-  color: rgb(250, 70, 22);
-  background-color: rgb(39, 99, 219);
-}
-
-.jumbotron {
-  color: rgb(250, 70, 22);
-  background-color: rgb(0, 33, 165);
-}
-
-.navbar-header {
-  color: rgb(250, 70, 22);
-  background-color: rgb(0, 33, 165);
-}
-
-.container {
-  color: white;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  /*
-    gap: 10% 10%;
-  */
-  margin: 10%;
-  padding: 50px;
+.bodyTextEditable {
+  white-space: pre-line;
+  text-align: center;
 }

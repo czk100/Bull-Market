@@ -8,10 +8,10 @@ const Item = require('../../models/Item');
 // @desc Get ALL Items
 // @access Public
 router.get('/', (req, res) => {
-    res.send({ message: "We did it!" });
-    // Item.find()
-    //     .sort({date : -1})
-    //     .then(items => res.json(items));
+    // res.send({ message: "We did it!" });
+    Item.find()
+        .sort({date : -1})
+        .then(items => res.json(items));
 });
 
 // @route POST api/items
