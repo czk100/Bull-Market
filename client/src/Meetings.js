@@ -3,7 +3,11 @@ import "./Meetings.css";
 import React from "react";
 
 function Meetings() {
-  return <div>this is Meetings</div>;
+  return (
+    <div className="meetings-container">
+      <h1 class="display-3">Meetings</h1>
+    </div>
+  );
 }
 
 export default Meetings;

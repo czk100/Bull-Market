@@ -1,5 +1,36 @@
 body {
-    background-color: white;
-    color: black;
-  }
-  
+  background-color: white;
+  color: black;
+}
+
+.announcements-container {
+  margin-top: 2%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 2%;
+  text-align: center;
+  width: auto;
+}
+
+.adderFormat {
+  white-space: pre-line;
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.messageFormat {
+  white-space: pre-line;
+  text-align: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}

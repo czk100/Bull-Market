@@ -25,10 +25,10 @@ function AnnouncementLoader() {
   return (
     <div className="Announcement">
       <div>
-        {data.map(function(d) {
-          return (<AnnouncementComponent parentData = {d} />);
+        {data.map(function (d) {
+          return <AnnouncementComponent parentData={d} />;
         })}
-      </div> 
+      </div>
     </div>
   );
 }

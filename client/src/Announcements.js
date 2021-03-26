@@ -7,14 +7,17 @@ import AnnouncementAdder from "./Adders/AnnouncementAdder.js";
 function Announcements() {
   return (
     <div class="announcements-container">
-      <h1>Announcements</h1>
+      <h1 class="display-3">Announcements</h1>
       <div className="announcementTextEditable">
-        <AnnouncementLoader />
-        <AnnouncementAdder />
+        <div className="adderFormat">
+          <AnnouncementAdder />
+        </div>
+        <div className="messageFormat">
+          <AnnouncementLoader />
+        </div>
       </div>
     </div>
-    
-    );
+  );
 }
 
 export default Announcements;
