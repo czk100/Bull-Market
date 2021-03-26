@@ -29,7 +29,6 @@ function TextLoader() {
 
   return (
     <div className="TextLoader">
-      {data && data.length > 0 && data.map((item) => <p>{item.about}</p>)}
       <div>{data.content}</div>
     </div>
   );
