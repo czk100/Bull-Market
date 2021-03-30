@@ -58,7 +58,7 @@ router.put('/', (req, res) => {
 // @desc Delete A Announcement
 // @access Public
 router.delete('/', (req, res) => {
-    Announcement.findOneAndDelete({name : req.params.name, content : req.params.content}, function(err, docs) {
+    Announcement.findOneAndDelete({name : req.params.name}, function(err, docs) {
         if(err) {
             console.log(err);
         } else {
