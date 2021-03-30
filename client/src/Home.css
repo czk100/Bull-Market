@@ -3,7 +3,29 @@
   text-align: center;
 }
 
+.description-container {
+  padding: 1%;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-bottom: solid gray;
+  border-width: 5%;
+}
+
+.FAQ-container {
+  padding-top: 4%;
+}
+
+.resource-container {
+  margin-top: 2%;
+}
+
 .bodyTextEditable {
   white-space: pre-line;
   text-align: center;
+  font-size: xx-large;
+}
+
+.FAQ-redirect:hover {
+  color: blue;
+  background-color: white;
 }

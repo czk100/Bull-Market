@@ -1,37 +1,36 @@
 const express = require('express');
 const router = express.Router();
 
-//Item Model
-const Item = require('../../models/EditText');
+//Announcement Model
+const Item = require('../../models/Announcement');
 
-// @route GET api/EditText
-// @desc Get ALL Items
+// @route GET applicaitons
+// @desc Get ALL Announcement
 // @access Public
 router.get('/', (req, res) => {
-    EditText.find()
+    Announcement.find()
         .sort({date : -1})
         .then(items => res.json(items));
 });
 
-// @route POST api/EditText
-// @desc Create An Item
-// @access Admin
+// @route POST api/Announcement
+// @desc Create An Announcement
+// @access Public
 router.post('/', (req, res) => {
-    const EditText = new Item({
+    const newAnnouncement = new Item({
         name: req.body.name,
         content: req.body.content
     });
 
-    EditText.save()
-        .then(editText => res.json(editText));
+    newAnnouncement.save()
+        .then(announcement => res.json(announcement));
 });
 
-
-// @route PUT api/EditText
-// @desc Edit An Item
+// @route PUT api/Announcement
+// @desc Edit An Announcement
 // @access Admin
 router.put('/', (req, res) => {
-    EditText.findOne({name : req.body.name}, function(err, editData) {
+    Announcement.findOne({name : req.body.name}, function(err, editData) {
         if(err)
         {
             console.log(err);
@@ -41,6 +40,7 @@ router.put('/', (req, res) => {
             res.json('no data');
         } else {
             editData.content = req.body.content;
+            editData.name = req.body.name;
             editData.save(function(err) {
                 if(err)
                 {
@@ -50,6 +50,19 @@ router.put('/', (req, res) => {
                     res.json('edit Complete');
                 }
             })
+        }
+    })
+});
+
+// @route DELETE api/items/:id
+// @desc Delete A Announcement
+// @access Public
+router.delete('/', (req, res) => {
+    Announcement.findOneAndDelete({name : req.params.name}, function(err, docs) {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log(docs);
         }
     })
 });
