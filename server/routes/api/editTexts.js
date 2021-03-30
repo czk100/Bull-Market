@@ -27,8 +27,8 @@ router.post('/', (req, res) => {
 });
 
 
-// @route POST api/EditText
-// @desc Create An Item
+// @route PUT api/EditText
+// @desc Edit An Item
 // @access Admin
 router.put('/', (req, res) => {
     EditText.findOne({name : req.body.name}, function(err, editData) {

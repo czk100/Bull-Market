@@ -6,7 +6,7 @@ const AnnouncementComponent = (props) => {
   const deleteAnnouncement = () => {
     console.log(data);
     axios
-      .post("http://localhost:5000/api/announcements", data)
+      .delete("http://localhost:5000/api/announcements", data)
       .then(function (response) {
         console.log(response);
       });

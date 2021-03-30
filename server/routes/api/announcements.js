@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
         .then(items => res.json(items));
 });
 
-// @route POST api/items
+// @route POST api/Announcement
 // @desc Create An Announcement
 // @access Public
 router.post('/', (req, res) => {
@@ -26,17 +26,45 @@ router.post('/', (req, res) => {
         .then(announcement => res.json(announcement));
 });
 
-
-// Deletes are weird, not implemented yet
+// @route PUT api/Announcement
+// @desc Edit An Announcement
+// @access Admin
+router.put('/', (req, res) => {
+    Announcement.findOne({name : req.body.name}, function(err, editData) {
+        if(err)
+        {
+            console.log(err);
+        }
+        if(! editData)
+        {
+            res.json('no data');
+        } else {
+            editData.content = req.body.content;
+            editData.name = req.body.name;
+            editData.save(function(err) {
+                if(err)
+                {
+                    console.log(err);
+                    res.json('edit save failed');
+                } else {
+                    res.json('edit Complete');
+                }
+            })
+        }
+    })
+});
 
 // @route DELETE api/items/:id
 // @desc Delete A Announcement
 // @access Public
-router.delete('/:id', (req, res) => {
-    Item.findById(req.params.id)
-        .then(item => item.remove()
-        .then(() => res.json({success: true})))
-        .catch(err => res.status(404).json({success: false}));
+router.delete('/', (req, res) => {
+    Announcement.findOneAndDelete({name : req.params.name, content : req.params.content}, function(err, docs) {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log(docs);
+        }
+    })
 });
 
 module.exports = router;
