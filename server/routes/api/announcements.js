@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 //Announcement Model
-const Item = require('../../models/Announcement');
+const Announcement = require('../../models/Announcement');
 
 // @route GET applicaitons
 // @desc Get ALL Announcement
@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 // @desc Create An Announcement
 // @access Public
 router.post('/', (req, res) => {
-    const newAnnouncement = new Item({
+    const newAnnouncement = new Announcement({
         name: req.body.name,
         content: req.body.content
     });

@@ -3,8 +3,12 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 
-const ItemSchema = Schema ({
-    name: {
+const QuestionSchema = Schema ({
+    question: {
+        type: String,
+        required: true
+    },
+    answer: {
         type: String,
         required: true
     },
@@ -14,4 +18,4 @@ const ItemSchema = Schema ({
     }
 });
 
-module.exports = Item = mongoose.model('item', ItemSchema);
+module.exports = Question = mongoose.model('question', QuestionSchema);
