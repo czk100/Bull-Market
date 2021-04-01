@@ -40,8 +40,8 @@ router.put('/', (req, res) => {
         {
             res.json('no data');
         } else {
-            editData.content = req.body.content;
-            editData.name = req.body.name;
+            editData.content = req.body.newData.content;
+            editData.name = req.body.newData.name;
             editData.save(function(err) {
                 if(err)
                 {
