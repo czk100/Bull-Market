@@ -30,6 +30,7 @@ router.post('/', (req, res) => {
 // @desc Edit An Announcement
 // @access Admin
 router.put('/', (req, res) => {
+    console.log(req.params);
     Announcement.findOne({name : req.body.name}, function(err, editData) {
         if(err)
         {
@@ -58,11 +59,16 @@ router.put('/', (req, res) => {
 // @desc Delete A Announcement
 // @access Public
 router.delete('/', (req, res) => {
-    Announcement.findOneAndDelete({name : req.params.name}, function(err, docs) {
+    console.log(req.params);
+    Announcement.findOneAndDelete({name : req.body.name}, function(err, docs) {
         if(err) {
+            res.json('delete failed');
             console.log(err);
-        } else {
+        } else if(docs) {
+            res.json('delete Complete');
             console.log(docs);
+        } else {
+            res.json('docs null Complete');
         }
     })
 });
