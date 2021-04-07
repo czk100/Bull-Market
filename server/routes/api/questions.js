@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
 // @desc Create An Announcement
 // @access Public
 router.post("/", (req, res) => {
-  const newQuestion = new Item({
+  const newQuestion = new Question({
     question: req.body.question,
     answer: req.body.answer,
   });
@@ -30,7 +30,7 @@ router.post("/", (req, res) => {
 // @access Admin
 router.put("/", (req, res) => {
   console.log(req.body);
-  Announcement.findOne({ question: req.body.oldQuestion }, function (err, editData) {
+  Question.findOne({ question: req.body.oldQuestion }, function (err, editData) {
     if (err) {
       console.log(err);
     }
