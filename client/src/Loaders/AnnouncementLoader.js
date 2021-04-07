@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AnnouncementComponent from "../Components/AnnouncementComponent.js";
+import "./AnnouncementLoader.css";
 const axios = require("axios");
 
 function AnnouncementLoader() {
