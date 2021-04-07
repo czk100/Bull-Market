@@ -21,15 +21,3 @@ function FAQ() {
 }
 
 export default FAQ;
-/////////////////////////////////////////////////////
-
-function Announcements() {
-  return (
-    <div class="announcements-container">
-      <h1 class="display-3">Announcements</h1>
-      
-    </div>
-  );
-}
-
-export default Announcements;

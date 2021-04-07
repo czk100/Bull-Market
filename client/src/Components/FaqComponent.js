@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from "react";
-import "./FaQComponent.css";
+import "./FaqComponent.css";
 const axios = require("axios");
 
 const FaqComponent = (props) => {
   const [data, setData] = useState([]);
   const deleteFaq = () => {
-    var toDelete = { data: { name: props.parentData.name } };
+    var toDelete = { data: { question: props.parentData.question } };
     console.log(toDelete);
     axios
-      .delete("http://localhost:5000/api/announcements", toDelete)
+      .delete("http://localhost:5000/api/questions", toDelete)
       .then(function (response) {
         console.log(response);
       });
   };
 
-  const editAnnouncement = () => {
+  const editFaq = () => {
     var toEdit = {
-      oldName: props.parentData.name,
+      oldQuestion: props.parentData.question,
       newData: data,
     };
     console.log(toEdit);
     axios
-      .put("http://localhost:5000/api/announcements", toEdit)
+      .put("http://localhost:5000/api/questions", toEdit)
       .then(function (response) {
         console.log(response);
       });
@@ -32,55 +32,55 @@ const FaqComponent = (props) => {
     setData(props.parentData);
   }, []);
 
-  const handleTitleChange = (e) => {
+  const handleQuestionChange = (e) => {
     var newData = {
-      name: e.target.value,
-      content: data.content,
+      question: e.target.value,
+      answer: data.answer,
     };
     setData(newData);
   };
 
-  const handleContentChange = (e) => {
+  const handleAnswerChange = (e) => {
     var newData = {
-      name: data.name,
-      content: e.target.value,
+      question: data.question,
+      answer: e.target.value,
     };
     setData(newData);
   };
 
   return (
-    <div className="Announcement-Component">
+    <div className="Faq-Component">
       <div class="card">
         <div class="card-header justify-content-between">
           <code class="timestamp">DATE PLACEHOLDER</code>
           <div class="btn-group">
-            <button id="del" class="btn" onClick={deleteAnnouncement}>
+            <button id="del" class="btn" onClick={deleteFaq}>
               Delete
             </button>
-            <button id="ed" class="btn" onClick={editAnnouncement}>
+            <button id="ed" class="btn" onClick={editFaq}>
               Edit
             </button>
           </div>
         </div>
         <div class="card-body">
-          <h5 class="card-title">{props.parentData.name}</h5>
-          <p class="card-text">{props.parentData.content}</p>
+          <h5 class="card-title">{props.parentData.question}</h5>
+          <p class="card-text">{props.parentData.answer}</p>
           <div class="textArea">
             <input
               type="text"
               name="details name"
-              placeholder="Title"
+              placeholder="Question"
               class="form-control"
-              value={data.name}
-              onChange={(e) => handleTitleChange(e)}
+              value={data.question}
+              onChange={(e) => handleQuestionChange(e)}
             />
             <input
               type="text"
               name="details content"
-              placeholder="Content"
+              placeholder="Answer"
               class="form-control"
-              value={data.content}
-              onChange={(e) => handleContentChange(e)}
+              value={data.answer}
+              onChange={(e) => handleAnswerChange(e)}
             />
           </div>
         </div>
@@ -89,4 +89,4 @@ const FaqComponent = (props) => {
   );
 };
 
-export default AnnouncementComponent;
+export default FaqComponent;
