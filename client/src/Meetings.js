@@ -47,7 +47,6 @@ function Meetings() {
           frameborder="0"
           scrolling="no"
         ></iframe>
-        <button onclick="Calendar.js">click this to add</button>
       </div>
     </div>
   );
