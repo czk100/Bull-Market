@@ -1,10 +1,11 @@
-.textArea {
+  .textArea {
+    display: none;
     margin-left: 10%;
     margin-right: 10%;
   }
   .timestamp {
     color: black;
-    margin-right: 10%;
+    margin-right: 10%; 
   }
   .Faq-Title {
     color: red;

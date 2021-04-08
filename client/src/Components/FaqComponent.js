@@ -4,6 +4,8 @@ const axios = require("axios");
 
 const FaqComponent = (props) => {
   const [data, setData] = useState([]);
+
+
   const deleteFaq = () => {
     var toDelete = { data: { question: props.parentData.question } };
     console.log(toDelete);
@@ -12,6 +14,22 @@ const FaqComponent = (props) => {
       .then(function (response) {
         console.log(response);
       });
+    window.location.reload();
+  };
+
+  const toggleEdit = () => {
+    var x = { data: { question: props.parentData.question } };
+    console.log(x);
+    if (x.style.display === ""){
+      x.style.display = "none";
+    }
+
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } 
+    else {
+      x.style.display = "none";
+    }
   };
 
   const editFaq = () => {
@@ -25,6 +43,7 @@ const FaqComponent = (props) => {
       .then(function (response) {
         console.log(response);
       });
+    window.location.reload();
   };
 
   useEffect(() => {
@@ -57,7 +76,7 @@ const FaqComponent = (props) => {
             <button id="del" class="btn" onClick={deleteFaq}>
               Delete
             </button>
-            <button id="ed" class="btn" onClick={editFaq}>
+            <button id="ed" class="btn" onClick={toggleEdit}>
               Edit
             </button>
           </div>
@@ -65,7 +84,7 @@ const FaqComponent = (props) => {
         <div class="card-body">
           <h5 class="card-title">{props.parentData.question}</h5>
           <p class="card-text">{props.parentData.answer}</p>
-          <div class="textArea">
+          <div id="Edit Area" class="textArea">
             <input
               type="text"
               name="details name"
@@ -82,6 +101,9 @@ const FaqComponent = (props) => {
               value={data.answer}
               onChange={(e) => handleAnswerChange(e)}
             />
+            <button id="sub" class="btn" onClick={editFaq}>
+              Submit
+            </button>
           </div>
         </div>
       </div>

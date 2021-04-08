@@ -1,0 +1,17 @@
+  .add-container {
+    display: none;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  #add {
+    margin-top: 2%;
+    margin-bottom: 0.5%;
+    background-color: darkgray;
+  }
+
+  #Submit {
+    margin-top: 2%;
+    margin-bottom: 0.5%;
+    background-color: darkgray;
+  }
