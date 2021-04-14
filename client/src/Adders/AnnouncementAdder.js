@@ -42,7 +42,7 @@ function AnnouncementAdder() {
         <input
           type="text"
           name="name"
-          placeholder="Name"
+          placeholder="Title"
           class="form-control"
           value={data.name}
           onChange={handleNameChange}
@@ -50,7 +50,7 @@ function AnnouncementAdder() {
         <input
           type="text"
           name="details"
-          placeholder="Details"
+          placeholder="Content"
           class="form-control"
           value={data.content}
           onChange={handleContentChange}
