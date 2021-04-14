@@ -4,11 +4,14 @@ const axios = require("axios");
 
 function FaqAdder() {
   const [data, setData] = useState([]);
-  const FaqPost = () => {
+  const FaqPost = (e) => {
+    e.preventDefault();
+    if(data.question !== undefined && data.answer !== undefined){
       var newData = {
         question: data.question,
         answer: data.answer,
       };
+      setErrorMessage("none")
       setData(newData)
       axios
         .post("http://localhost:5000/api/questions", data)
@@ -16,6 +19,10 @@ function FaqAdder() {
           console.log(response);
         });
       window.location.reload();
+    }
+    else{
+      setErrorMessage("block")
+    }
   };
 
   const handleQuestionChange = (e) => {
@@ -36,6 +43,8 @@ function FaqAdder() {
 
   const toggleAdd = () => {
     var x = document.getElementById("Add Area");
+    var y = document.getElementById("errorMessage");
+    y.style.display = "none";
     if (x.style.display === ""){
       x.style.display = "none";
     }
@@ -48,11 +57,20 @@ function FaqAdder() {
     }
   };
 
+  const setErrorMessage = (show) => {
+    var x = document.getElementById("errorMessage");
+    x.style.display = show;
+    console.log(x.style.display)
+  };
+
   return (
     <div className="Faq-Adder">
       <button id="add" class="btn" onClick={toggleAdd}>
         Add FAQ
       </button>
+      <div id="errorMessage" class="error-container">
+        Question and/or Answer Missing!
+      </div>
       <div id="Add Area" class="add-container">
         <form>
           <br></br>

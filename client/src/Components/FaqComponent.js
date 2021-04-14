@@ -5,7 +5,6 @@ const axios = require("axios");
 const FaqComponent = (props) => {
   const [data, setData] = useState([]);
 
-
   const deleteFaq = () => {
     var toDelete = { data: { question: props.parentData.question } };
     console.log(toDelete);
@@ -17,25 +16,10 @@ const FaqComponent = (props) => {
     window.location.reload();
   };
 
-  const toggleEdit = () => {
-    var x = { data: { question: props.parentData.question } };
-    console.log(x);
-    if (x.style.display === ""){
-      x.style.display = "none";
-    }
-
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } 
-    else {
-      x.style.display = "none";
-    }
-  };
-
   const editFaq = () => {
     var toEdit = {
       oldQuestion: props.parentData.question,
-      newData: data,
+      newData: data.d,
     };
     console.log(toEdit);
     axios
@@ -47,22 +31,32 @@ const FaqComponent = (props) => {
   };
 
   useEffect(() => {
+    var newData = {
+      show: false,
+      d: props.parentData
+    };
     console.log(props);
-    setData(props.parentData);
+    setData(newData);
   }, []);
 
   const handleQuestionChange = (e) => {
     var newData = {
-      question: e.target.value,
-      answer: data.answer,
+      show: data.show,
+      d: {
+        question: e.target.value,
+        answer: data.d.answer,
+      }
     };
     setData(newData);
   };
 
   const handleAnswerChange = (e) => {
     var newData = {
-      question: data.question,
-      answer: e.target.value,
+      show: data.show,
+      d: {
+        question: data.d.question,
+        answer:  e.target.value,
+      }
     };
     setData(newData);
   };
@@ -71,12 +65,12 @@ const FaqComponent = (props) => {
     <div className="Faq-Component">
       <div class="card">
         <div class="card-header justify-content-between">
-          <code class="timestamp">DATE PLACEHOLDER</code>
+          <code class="timestamp"></code>
           <div class="btn-group">
             <button id="del" class="btn" onClick={deleteFaq}>
               Delete
             </button>
-            <button id="ed" class="btn" onClick={toggleEdit}>
+            <button id="ed" class="btn" onClick={editFaq}>
               Edit
             </button>
           </div>
@@ -84,27 +78,24 @@ const FaqComponent = (props) => {
         <div class="card-body">
           <h5 class="card-title">{props.parentData.question}</h5>
           <p class="card-text">{props.parentData.answer}</p>
-          <div id="Edit Area" class="textArea">
-            <input
-              type="text"
-              name="details name"
-              placeholder="Question"
-              class="form-control"
-              value={data.question}
-              onChange={(e) => handleQuestionChange(e)}
-            />
-            <input
-              type="text"
-              name="details content"
-              placeholder="Answer"
-              class="form-control"
-              value={data.answer}
-              onChange={(e) => handleAnswerChange(e)}
-            />
-            <button id="sub" class="btn" onClick={editFaq}>
-              Submit
-            </button>
-          </div>
+              <div id="Edit Area" className="textArea">
+                <input
+                  type="text"
+                  name="details name"
+                  placeholder="Question"
+                  class="form-control"
+                  value={data.question}
+                  onChange={(e) => handleQuestionChange(e)}
+                />
+                <input
+                  type="text"
+                  name="details content"
+                  placeholder="Answer"
+                  class="form-control"
+                  value={data.answer}
+                  onChange={(e) => handleAnswerChange(e)}
+                />
+              </div>
         </div>
       </div>
     </div>
