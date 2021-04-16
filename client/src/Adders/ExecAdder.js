@@ -5,24 +5,21 @@ const axios = require("axios");
 function ExecAdder() {
   const [data, setData] = useState([]);
   const ExecPost = (e) => {
-    // e.preventDefault();
-    // if(data.question !== undefined && data.answer !== undefined){
-    //   var newData = {
-    //     question: data.question,
-    //     answer: data.answer,
-    //   };
-    //   setErrorMessage("none")
-    //   setData(newData)
-    //   axios
-    //     .post("http://localhost:5000/api/questions", data)
-    //     .then(function (response) {
-    //       console.log(response);
-    //     });
-    //   window.location.reload();
-    // }
-    // else{
-    //   setErrorMessage("block")
-    // }
+    e.preventDefault();
+      var newData = {
+        position: data.position,
+        name: data.name,
+        email: data.email,
+        linkedIn: data.linkedIn,
+      };
+      console.log(newData)
+      setData(newData)
+      axios
+        .post("http://localhost:5000/api/execBoard", data)
+        .then(function (response) {
+          console.log(response);
+        });
+      window.location.reload();
   };
 
   const handlePositionChange = (e) => {
@@ -47,7 +44,7 @@ function ExecAdder() {
 
   const handleEmailChange = (e) => {
     var newData = {
-      position: data.question,
+      position: data.position,
       name: data.name,
       email: e.target.value,
       linkedIn: data.linkedIn,
@@ -57,7 +54,7 @@ function ExecAdder() {
 
   const handleLinkedInChange = (e) => {
     var newData = {
-      position: data.question,
+      position: data.position,
       name:  data.name,
       email: data.email,
       linkedIn: e.target.value,
