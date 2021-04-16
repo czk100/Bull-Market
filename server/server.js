@@ -6,6 +6,7 @@ const cors = require('cors');
 const announcements = require('./routes/api/announcements');
 const editTexts = require('./routes/api/editTexts');
 const questions = require('./routes/api/questions');
+const ExecBoard = require('./routes/api/execBoard');
 
 const app = express();
 
@@ -29,6 +30,7 @@ mongoose
 app.use('/api/announcements', announcements);
 app.use('/api/editTexts', editTexts);
 app.use('/api/questions', questions);
+app.use('/api/execBoard', ExecBoard);
 
 //port configuration
 const port = process.env.PORT || 5000;
