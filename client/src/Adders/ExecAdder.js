@@ -102,7 +102,7 @@ function ExecAdder() {
             <table class= "table table-borderless">
                 <td>
                 <button type="close" class="btnC" onClick={toggleAdd}>
-                    X
+                    x
                 </button>
                 </td>
 
