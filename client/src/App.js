@@ -28,7 +28,8 @@ function App() {
         <BrowserRouter>
           <Route exact path="/" component={Home} />
           <Route exact path="/meetings" component={Meetings} />
-          <Route exact path="/announcements" component={Announcements} />
+          {/* <Route exact path="/announcements" component={Announcements} /> */}
+          (isAuthenticated ? () : ())
           <Route exact path="/execboard" component={ExecBoard} />
           <Route exact path="/social" component={Socials} />
           <Route exact path="/faq" component={FAQ} />
