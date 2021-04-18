@@ -1,14 +1,14 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 
 //Announcement Model
-const Announcement = require('../../models/Announcement');
+const Question = require('../../models/Question');
 
 // @route GET applicaitons
 // @desc Get ALL Announcement
 // @access Public
 router.get("/", (req, res) => {
-  Announcement.find()
+  Question.find()
     .sort({ date: -1 })
     .then((items) => res.json(items));
 });
@@ -16,14 +16,13 @@ router.get("/", (req, res) => {
 // @route POST api/Announcement
 // @desc Create An Announcement
 // @access Public
-router.post('/', (req, res) => {
-    const newAnnouncement = new Announcement({
-        name: req.body.name,
-        content: req.body.content
-    });
+router.post("/", (req, res) => {
+  const newQuestion = new Question({
+    question: req.body.question,
+    answer: req.body.answer,
+  });
 
-
-  newAnnouncement.save().then((announcement) => res.json(announcement));
+  newQuestion.save().then((question) => res.json(question));
 });
 
 // @route PUT api/Announcement
@@ -31,15 +30,15 @@ router.post('/', (req, res) => {
 // @access Admin
 router.put("/", (req, res) => {
   console.log(req.body);
-  Announcement.findOne({ name: req.body.oldName }, function (err, editData) {
+  Question.findOne({ question: req.body.oldQuestion }, function (err, editData) {
     if (err) {
       console.log(err);
     }
     if (!editData) {
       res.json("no data");
     } else {
-      editData.content = req.body.newData.content;
-      editData.name = req.body.newData.name;
+      editData.answer = req.body.newData.answer;
+      editData.question = req.body.newData.question;
       editData.save(function (err) {
         if (err) {
           console.log(err);
@@ -57,7 +56,7 @@ router.put("/", (req, res) => {
 // @access Public
 router.delete("/", (req, res) => {
   console.log(req.body);
-  Announcement.findOneAndDelete({ name: req.body.name }, function (err, docs) {
+  Question.findOneAndDelete({ question: req.body.question }, function (err, docs) {
     if (err) {
       res.json("delete failed");
       console.log(err);

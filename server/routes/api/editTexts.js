@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 //Item Model
-const Item = require('../../models/EditText');
+const EditText = require('../../models/EditText');
 
 // @route GET api/EditText
 // @desc Get ALL Items
