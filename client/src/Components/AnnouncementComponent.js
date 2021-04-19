@@ -30,7 +30,7 @@ const AnnouncementComponent = (props) => {
   useEffect(() => {
     console.log(props);
     setData(props.parentData);
-  }, []);
+  }, [props]);
 
   const handleTitleChange = (e) => {
     var newData = {

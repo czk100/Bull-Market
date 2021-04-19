@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 const axios = require("axios");
 
 function AnnouncementAdder() {
@@ -14,8 +14,6 @@ function AnnouncementAdder() {
         console.log(response);
       });
   };
-
-  const showHide = () => {};
 
   const handleNameChange = (e) => {
     console.log("handleNameChange");

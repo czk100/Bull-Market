@@ -37,7 +37,7 @@ const FaqComponent = (props) => {
     };
     console.log(props);
     setData(newData);
-  }, []);
+  }, [props]);
 
   const handleQuestionChange = (e) => {
     var newData = {
