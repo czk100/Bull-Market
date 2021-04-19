@@ -1,6 +1,7 @@
 import "./App.css";
 import "./Meetings.css";
 import React from "react";
+import Uploader from "./Uploads/Uploader";
 
 function Meetings() {
   return (
@@ -9,6 +10,7 @@ function Meetings() {
       <div class="calendar-container">
         <h2 class="display-5">Calendar</h2>
       </div>
+      <Uploader />
     </div>
   );
 }
