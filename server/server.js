@@ -1,11 +1,12 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
-const announcements = require('./routes/api/announcements');
-const editTexts = require('./routes/api/editTexts');
-const questions = require('./routes/api/questions');
+const announcements = require("./routes/api/announcements");
+const editTexts = require("./routes/api/editTexts");
+const questions = require("./routes/api/questions");
+const upload = require("./routes/api/upload");
 
 const app = express();
 
@@ -16,21 +17,22 @@ app.use(cors());
 app.use(bodyParser.json());
 
 //DB Config
-const db = require('./config/keys').mongoURI;
+const db = require("./config/keys").mongoURI;
 
 //Connect to Mongo
 mongoose
-    .set('useNewUrlParser', true)
-    .set('useUnifiedTopology', true)
-    .connect(db)
-    .then(() => console.log('MongoDB Connected...'))
-    .catch(err => console.log(err));
+  .set("useNewUrlParser", true)
+  .set("useUnifiedTopology", true)
+  .connect(db)
+  .then(() => console.log("MongoDB Connected..."))
+  .catch((err) => console.log(err));
 
-app.use('/api/announcements', announcements);
-app.use('/api/editTexts', editTexts);
-app.use('/api/questions', questions);
+app.use("/api/announcements", announcements);
+app.use("/api/editTexts", editTexts);
+app.use("/api/questions", questions);
+app.use("/api/upload", upload);
 
 //port configuration
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log('Server started on port ' + port));
+app.listen(port, () => console.log("Server started on port " + port));

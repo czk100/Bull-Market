@@ -1,27 +1,70 @@
-import React from "react";
-import { useDropzone } from "react-dropzone";
+import React, { useState, useEffect, useCallback } from "react";
+import Dropzone from "react-dropzone";
 import "./Uploader.css";
+const axios = require("axios");
 
 function Uploader(props) {
-  const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
+  //adder component
+  const [data, setData] = useState([]);
+  const UploadPost = () => {
+    console.log(data);
+    axios
+      .post("http://localhost:5000/api/upload", data)
+      .then(function (response) {
+        console.log(response);
+      });
+  };
 
-  const files = acceptedFiles.map((file) => (
-    <li class="li-files" key={file.path}>
-      {file.path}
-    </li>
-  ));
+  // const handleContentChange = (e) => {
+  //   console.log("handleContentChange");
+  //   console.log(e);
+  //   var newData = {
+  //     name: e.target.value,
+  //     content: files,
+  //   };
+  //   setData(newData);
+  // };
+  function handleContentChange(files) {
+    console.log("handleContentChange");
+    console.log(files[0].name);
+    console.log(files[0]);
+    const reader = new FileReader();
+    reader.onabort = () => console.log("File reading was aborted.");
+    reader.onerror = () => console.log("File reading has failed (error)");
+    reader.onload = () => {
+      const binaryStr = reader.result;
+      console.log(binaryStr);
+      var newData = {
+        name: files[0].name,
+        content: binaryStr,
+      };
+      setData(newData);
+    };
+    reader.readAsDataURL(files[0]);
+
+    // setData(files);
+  }
 
   return (
-    <section className="dropzone-container">
-      <div {...getRootProps({ className: "dropzone" })}>
-        <input {...getInputProps()} />
-        <p>Drag and drop files here, or click to select files</p>
-      </div>
-      <aside>
-        <h4>Files</h4>
-        <ul class="ul-files">{files}</ul>
-      </aside>
-    </section>
+    <div>
+      <Dropzone onDrop={(files) => handleContentChange(files)}>
+        {({ getRootProps, getInputProps }) => (
+          <div className="container">
+            <div
+              {...getRootProps({
+                className: "dropzone",
+              })}
+            >
+              <input {...getInputProps()} />
+              <p>Drag and drop here, or click to select file</p>
+            </div>
+          </div>
+        )}
+      </Dropzone>
+      <button class="btn" onClick={UploadPost}>
+        Submit
+      </button>
+    </div>
   );
 }
 export default Uploader;
