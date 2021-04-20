@@ -47,23 +47,36 @@ function Uploader(props) {
 
   return (
     <div>
-      <Dropzone onDrop={(files) => handleContentChange(files)}>
-        {({ getRootProps, getInputProps }) => (
-          <div className="container">
-            <div
-              {...getRootProps({
-                className: "dropzone",
-              })}
-            >
-              <input {...getInputProps()} />
-              <p>Drag and drop here, or click to select file</p>
+      <form action="/profile" method="post" enctype="multipart/form-data">
+        <Dropzone onDrop={(files) => handleContentChange(files)}>
+          {({ getRootProps, getInputProps }) => (
+            <div className="container">
+              <div
+                {...getRootProps({
+                  className: "dropzone",
+                })}
+              >
+                <input {...getInputProps()} />
+                <p>Drag and drop here, or click to select file</p>
+              </div>
             </div>
-          </div>
-        )}
-      </Dropzone>
+          )}
+        </Dropzone>
+      </form>
       <button class="btn" onClick={UploadPost}>
         Submit
       </button>
+
+      <h1>Old form</h1>
+      <form
+        method="post"
+        action="/"
+        id="old-example"
+        enctype="multipart/form-data"
+      >
+        <input name="file" type="file" multiple />
+        <button>Save</button>
+      </form>
     </div>
   );
 }

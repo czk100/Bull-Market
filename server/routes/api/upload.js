@@ -3,7 +3,6 @@ const router = express.Router();
 
 //Upload Model
 const Upload = require("../../models/Upload");
-
 // @route GET applicaitons
 // @desc Get ALL Upload
 // @access Public
