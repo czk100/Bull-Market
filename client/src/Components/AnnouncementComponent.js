@@ -3,9 +3,9 @@ import "./AnnouncementComponent.css";
 const axios = require("axios");
 
 const AnnouncementComponent = (props) => {
-  function timeDate(date){
+  function timeDate(date) {
     var i = date.search("T");
-    if(i == -1){
+    if (i == -1) {
       return date;
     }
     return date.substring(0, i);
@@ -58,16 +58,38 @@ const AnnouncementComponent = (props) => {
     setData(newData);
   };
 
+  function hideForGuest() {
+    if (!props.isAdmin) {
+      if (document.getElementsByClassName("deled").length > 0) {
+        for (
+          var i = 0;
+          i < document.getElementsByClassName("deled").length;
+          i++
+        ) {
+          document.getElementsByClassName("deled")[i].style.display = "none";
+        }
+      }
+      if (document.getElementsByClassName("textArea").length > 0) {
+        for (
+          var i = 0;
+          i < document.getElementsByClassName("textArea").length;
+          i++
+        ) {
+          document.getElementsByClassName("textArea")[i].style.display = "none";
+        }
+      }
+    }
+  }
   return (
     <div className="Announcement-Component">
       <div class="card">
         <div class="card-header justify-content-between">
           <code class="timestamp">{props.parentData.date}</code>
           <div class="btn-group">
-            <button id="del" class="btn" onClick={deleteAnnouncement}>
+            <button id="del" class="btn deled" onClick={deleteAnnouncement}>
               Delete
             </button>
-            <button id="ed" class="btn" onClick={editAnnouncement}>
+            <button id="ed" class="btn deled" onClick={editAnnouncement}>
               Edit
             </button>
           </div>
@@ -94,6 +116,7 @@ const AnnouncementComponent = (props) => {
             />
           </div>
         </div>
+        {hideForGuest()}
       </div>
     </div>
   );
