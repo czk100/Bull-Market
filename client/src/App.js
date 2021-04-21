@@ -16,6 +16,7 @@ function App() {
 
   const isAuthenticated = Cookies.get('auth0.is.authenticated');
   console.log(isAuthenticated);
+  console.log(window.location.origin);
 
   return (
     <div className="App">
