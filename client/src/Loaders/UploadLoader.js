@@ -8,7 +8,7 @@ function UploadLoader() {
   const UploadLoad = () => {
     //we need to use a fetch here
     axios
-      .get("http://localhost:5000/api/upload")
+      .get("http://localhost:5000/api/uploadNames")
       .then(function (response) {
         console.log(response);
         return response.data;

@@ -9,7 +9,13 @@ function Uploader(props) {
   const UploadPost = () => {
     console.log(data);
     axios
-      .post("http://localhost:5000/api/upload", data)
+      .post("http://localhost:5000/api/uploads", data)
+      .then(function (response) {
+        console.log(response);
+      });
+    
+    axios
+      .post("http://localhost:5000/api/uploadNames", {name : data.name})
       .then(function (response) {
         console.log(response);
       });
@@ -66,17 +72,6 @@ function Uploader(props) {
       <button class="btn" onClick={UploadPost}>
         Submit
       </button>
-
-      <h1>Old form</h1>
-      <form
-        method="post"
-        action="/"
-        id="old-example"
-        enctype="multipart/form-data"
-      >
-        <input name="file" type="file" multiple />
-        <button>Save</button>
-      </form>
     </div>
   );
 }

@@ -6,7 +6,8 @@ const cors = require("cors");
 const announcements = require("./routes/api/announcements");
 const editTexts = require("./routes/api/editTexts");
 const questions = require("./routes/api/questions");
-const upload = require("./routes/api/upload");
+const uploads = require("./routes/api/uploads");
+const uploadNames = require("./routes/api/uploadNames");
 
 const app = express();
 
@@ -39,7 +40,8 @@ connection.once('open', () => {
 app.use("/api/announcements", announcements);
 app.use("/api/editTexts", editTexts);
 app.use("/api/questions", questions);
-app.use("/api/upload", upload);
+app.use("/api/uploads", uploads);
+app.use("/api/uploadNames", uploadNames);
 
 //port configuration
 const port = process.env.PORT || 5000;
