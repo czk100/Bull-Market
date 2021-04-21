@@ -22,4 +22,4 @@ const execBoardSchema = Schema ({
     }
 });
 
-module.exports = ExecBoard = mongoose.model('execBoard', execBoardSchema);v
+module.exports = ExecBoard = mongoose.model('execBoard', execBoardSchema);

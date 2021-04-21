@@ -103,6 +103,8 @@ function ExecAdder() {
                 </button>
                 </td>
 
+                
+
                 <td>
                 <div id="addCard" class="card">
                     <div class="card-header justify-content-left">
@@ -144,13 +146,13 @@ function ExecAdder() {
                             />
                         </div>
                     </div>
-                </div>
-                <button id= "Submit" class="btn" onClick={ExecPost}>
-                    Submit
-                </button>
-                </td>
+              </div>
+              <button id= "Submit" class="btn" onClick={ExecPost}>
+                  Submit
+              </button>
+              </td>
             </table>
-        </div>
+      </div>
     </div>
   );
 }

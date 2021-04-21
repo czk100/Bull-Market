@@ -83,23 +83,27 @@ const ExecComponent = (props) => {
     <div className="Exec-Component">
       <div class="card">
 
-        <div class="card-header justify-content-between">
-          <code class="timestamp"></code>
-          <div class="btn-group">
-            <button id="del" class="btn" onClick={deleteExec}>
-              Delete
-            </button>
-            <button id="ed" class="btn" onClick={editExec}>
-              Edit
-            </button>
+        <div class="card-header justify-content-right">
+          <div class="container-fluid justify-content-center">
+            <div class="Position-Title">{props.parentData.position + ": " + props.parentData.name}</div>
           </div>
+        <button id="del" class="btnC" onClick={deleteExec}> X</button>
+        <button id="ed" class="ed" onClick={editExec}></button>
         </div>
 
         <div class="card-body">
-          <h5 class="card-title">{props.parentData.position}</h5>
-          <p class="card-text">{props.parentData.name}</p>
-          <p class="card-text">{props.parentData.email}</p>
-          <p class="card-text">{props.parentData.linkedIn}</p>
+          <table class= "table table-borderless">
+            <td>
+              <div class="profile-pic justify-content-left">
+              </div>
+            </td>
+            <td>
+              <div class="profile-text">
+                <p>Email: {props.parentData.email}</p>
+                <a href>LinkedIn: {props.parentData.email}</a>
+              </div>
+            </td>
+          </table>
             <div class="textArea">
                 <input
                 type="text"
