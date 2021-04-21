@@ -6,7 +6,7 @@ function TextLoader() {
   const TextLoad = () => {
     //we need to use a fetch here
     axios
-      .get(process.env.SERVER_LOCATION + "/api/editTexts")
+      .get(process.env.REACT_APP_SERVER_LOCATION + "/api/editTexts")
       .then(function (response) {
         console.log(response);
         return response.data;

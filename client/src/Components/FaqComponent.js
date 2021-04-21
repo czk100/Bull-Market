@@ -9,7 +9,7 @@ const FaqComponent = (props) => {
     var toDelete = { data: { question: props.parentData.question } };
     console.log(toDelete);
     axios
-      .delete(process.env.SERVER_LOCATION + "/api/questions", toDelete)
+      .delete(process.env.REACT_APP_SERVER_LOCATION + "/api/questions", toDelete)
       .then(function (response) {
         console.log(response);
       });
@@ -23,7 +23,7 @@ const FaqComponent = (props) => {
     };
     console.log(toEdit);
     axios
-      .put(process.env.SERVER_LOCATION + "/api/questions", toEdit)
+      .put(process.env.REACT_APP_SERVER_LOCATION + "/api/questions", toEdit)
       .then(function (response) {
         console.log(response);
       });

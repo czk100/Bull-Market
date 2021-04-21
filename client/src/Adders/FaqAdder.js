@@ -14,7 +14,7 @@ const FaqAdder = (props) => {
       setErrorMessage("none");
       setData(newData);
       axios
-        .post(process.env.SERVER_LOCATION + "questions", data)
+        .post(process.env.REACT_APP_SERVER_LOCATION + "/api/questions", data)
         .then(function (response) {
           console.log(response);
         });

@@ -8,6 +8,7 @@ const Announcements = (props) => {
 
   
   console.log(props.isAdmin);
+  console.log(process.env.REACT_APP_SERVER_LOCATION);
 
   return (
     <div class="announcements-container">

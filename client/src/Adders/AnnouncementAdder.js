@@ -9,7 +9,7 @@ const AnnouncementAdder = (props) => {
     // }
     console.log(data);
     axios
-      .post(process.env.SERVER_LOCATION + "/api/announcements", data)
+      .post(process.env.REACT_APP_SERVER_LOCATION + "/api/announcements", data)
       .then(function (response) {
         console.log(response);
       });

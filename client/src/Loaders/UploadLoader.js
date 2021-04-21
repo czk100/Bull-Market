@@ -8,7 +8,7 @@ const UploadLoader = (props) => {
   const UploadLoad = () => {
     //we need to use a fetch here
     axios
-      .get(process.env.SERVER_LOCATION + "/api/uploadNames")
+      .get(process.env.REACT_APP_SERVER_LOCATION + "/api/uploadNames")
       .then(function (response) {
         console.log(response);
         return response.data;

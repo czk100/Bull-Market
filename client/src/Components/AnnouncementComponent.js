@@ -16,7 +16,7 @@ const AnnouncementComponent = (props) => {
     var toDelete = { data: { name: props.parentData.name } };
     console.log(toDelete);
     axios
-      .delete(process.env.SERVER_LOCATION + "/api/announcements", toDelete)
+      .delete(process.env.REACT_APP_SERVER_LOCATION + "/api/announcements", toDelete)
       .then(function (response) {
         console.log(response);
       });
@@ -29,7 +29,7 @@ const AnnouncementComponent = (props) => {
     };
     console.log(toEdit);
     axios
-      .put(process.env.SERVER_LOCATION + "/api/announcements", toEdit)
+      .put(process.env.REACT_APP_SERVER_LOCATION + "/api/announcements", toEdit)
       .then(function (response) {
         console.log(response);
       });
