@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./UploadComponent.css";
-import DownloadLink from "react-download-link";
-var fileDownload = require('js-file-download');
 const axios = require("axios");
 
 const UploadComponent = (props) => {
@@ -36,6 +34,7 @@ const UploadComponent = (props) => {
   function downloadFunction() {
     axios.get("http://localhost:5000/api/uploads", {data: {name: props.parentData.name}})
     .then(function (response) {
+      data.name = 'placeholder';
       return response.data;
     })
     .then(function (myJson) {
@@ -59,7 +58,7 @@ const UploadComponent = (props) => {
     console.log(props);
     var dateReadable = props.parentData;
     setData(dateReadable);
-  }, []);
+  }, [props]);
 
   return (
     <div className="Upload-Component">

@@ -62,9 +62,10 @@ const FaqComponent = (props) => {
   };
 
   function hideForGuest() {
+    var i = 0;
     if (!props.isAdmin && document.getElementsByClassName("deled").length > 0) {
       for (
-        var i = 0;
+        i = 0;
         i < document.getElementsByClassName("deled").length;
         i++
       ) {
@@ -73,7 +74,7 @@ const FaqComponent = (props) => {
     }
     if (document.getElementsByClassName("textArea").length > 0) {
       for (
-        var i = 0;
+        i = 0;
         i < document.getElementsByClassName("textArea").length;
         i++
       ) {

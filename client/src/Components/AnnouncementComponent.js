@@ -3,13 +3,13 @@ import "./AnnouncementComponent.css";
 const axios = require("axios");
 
 const AnnouncementComponent = (props) => {
-  function timeDate(date) {
-    var i = date.search("T");
-    if (i == -1) {
-      return date;
-    }
-    return date.substring(0, i);
-  }
+  // function timeDate(date) {
+  //   var i = date.search("T");
+  //   if (i == -1) {
+  //     return date;
+  //   }
+  //   return date.substring(0, i);
+  // }
 
   const [data, setData] = useState([]);
   const deleteAnnouncement = () => {
@@ -57,10 +57,11 @@ const AnnouncementComponent = (props) => {
   };
 
   function hideForGuest() {
+    var i = 0;
     if (!props.isAdmin) {
       if (document.getElementsByClassName("deled").length > 0) {
         for (
-          var i = 0;
+          i = 0;
           i < document.getElementsByClassName("deled").length;
           i++
         ) {
@@ -69,7 +70,7 @@ const AnnouncementComponent = (props) => {
       }
       if (document.getElementsByClassName("textArea").length > 0) {
         for (
-          var i = 0;
+          i = 0;
           i < document.getElementsByClassName("textArea").length;
           i++
         ) {

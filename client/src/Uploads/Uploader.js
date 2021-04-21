@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import Dropzone from "react-dropzone";
 import "./Uploader.css";
 const axios = require("axios");
