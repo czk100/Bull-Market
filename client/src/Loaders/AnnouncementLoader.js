@@ -3,7 +3,7 @@ import AnnouncementComponent from "../Components/AnnouncementComponent.js";
 import "./AnnouncementLoader.css";
 const axios = require("axios");
 
-function AnnouncementLoader() {
+const AnnouncementLoader = (props) => {
   const [data, setData] = useState([]);
   const AnnouncementLoad = () => {
     //we need to use a fetch here
@@ -27,7 +27,7 @@ function AnnouncementLoader() {
     <div className="Announcement">
       <div>
         {data.map(function (d) {
-          return <AnnouncementComponent parentData={d} isAdmin={false} />;
+          return <AnnouncementComponent parentData={d} isAdmin={props.isAdmin} />;
         })}
       </div>
     </div>

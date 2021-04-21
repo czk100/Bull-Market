@@ -63,7 +63,7 @@ const UploadComponent = (props) => {
   return (
     <div className="Upload-Component">
       <div class="card">
-        <div class="card-header justify-content-between">
+        { props.isAdmin && <div class="card-header justify-content-between">
           <code class="timestamp">{props.parentData.date}</code>
           <div class="btn-group">
             <button id="del" class="btn" onClick={downloadFunction}>
@@ -73,7 +73,7 @@ const UploadComponent = (props) => {
               Delete
             </button>
           </div>
-        </div>
+        </div> }
         <div class="card-body">
           <h5 class="card-title">{props.parentData.name}</h5>
         </div>

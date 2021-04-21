@@ -3,7 +3,7 @@ import UploadComponent from "../Components/UploadComponent.js";
 import "./UploadLoader.css";
 const axios = require("axios");
 
-function UploadLoader() {
+const UploadLoader = (props) => {
   const [data, setData] = useState([]);
   const UploadLoad = () => {
     //we need to use a fetch here
@@ -27,7 +27,7 @@ function UploadLoader() {
     <div className="Upload">
       <div>
         {data.map(function (d) {
-          return <UploadComponent parentData={d} />;
+          return <UploadComponent parentData={d} isAdmin={props.isAdmin}/>;
         })}
       </div>
     </div>

@@ -3,7 +3,7 @@ import FaqComponent from "../Components/FaqComponent.js";
 import "./FaqLoader.css";
 const axios = require("axios");
 
-function FaqLoader() {
+const FaqLoader = (props) => {
   const [data, setData] = useState([]);
   const FaqLoad = () => {
     //we need to use a fetch here
@@ -27,7 +27,7 @@ function FaqLoader() {
     <div className="FAQ">
       <div>
         {data.map(function (d) {
-          return <FaqComponent parentData={d} isAdmin={false} />;
+          return <FaqComponent parentData={d} isAdmin={props.isAdmin} />;
         })}
       </div>
     </div>

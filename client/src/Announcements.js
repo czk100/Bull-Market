@@ -4,16 +4,22 @@ import React from "react";
 import AnnouncementLoader from "./Loaders/AnnouncementLoader.js";
 import AnnouncementAdder from "./Adders/AnnouncementAdder.js";
 
-function Announcements() {
+const Announcements = (props) => {
+
+  
+  console.log(props.isAdmin);
+
   return (
     <div class="announcements-container">
       <h1 class="display-3">Announcements</h1>
       <div className="announcementTextEditable">
-        <div className="adderFormat">
-          <AnnouncementAdder />
-        </div>
+        {props.isAdmin && 
+          <div className="adderFormat">
+            <AnnouncementAdder />
+          </div>
+        }
         <div className="messageFormat">
-          <AnnouncementLoader />
+          <AnnouncementLoader isAdmin={props.isAdmin}/>
         </div>
       </div>
       {console.log(document.getElementsByClassName("input-group"))}
