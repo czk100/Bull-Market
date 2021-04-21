@@ -14,7 +14,8 @@ const app = express();
 app.use(cors());
 
 // Bodyparser middleware
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
+
 
 //DB Config
 const db = require("./config/keys").mongoURI;
@@ -26,6 +27,14 @@ mongoose
   .connect(db)
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
+
+
+var connection = mongoose.connection;
+connection.once('open', () => {
+  gfs = new mongoose.mongo.GridFSBucket(connection.db, {
+    bucketName: "uploads"
+  });
+});
 
 app.use("/api/announcements", announcements);
 app.use("/api/editTexts", editTexts);

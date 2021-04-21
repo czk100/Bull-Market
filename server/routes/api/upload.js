@@ -1,8 +1,34 @@
 const express = require("express");
 const router = express.Router();
+const multer = require("multer");
+const GridFsStorage = require("multer-gridfs-storage");
+
 
 //Upload Model
 const Upload = require("../../models/Upload");
+
+const db = require("../../config/keys").mongoURI;
+const storage = new GridFsStorage({
+  url: db,
+  file: (req, file) => {
+    return new Promise((resolve, reject) => {
+      crypto.randomBytes(16, (err, buf) => {
+        if(err) {
+          return reject(err);
+        }
+        const filename = buf.toString('hex') + path.extname(file.originalname);
+        const fileInfo = {
+          filename: filename,
+          bucketName: 'uploads'
+        }
+        resolve(fileInfo);
+      });
+    });
+  }
+});
+
+const uploadGrid = multer({storage});
+
 // @route GET applicaitons
 // @desc Get ALL Upload
 // @access Public
@@ -15,14 +41,57 @@ router.get("/", (req, res) => {
 // @route POST api/Upload
 // @desc Create An Upload
 // @access Public
-router.post("/", (req, res) => {
-  const newUpload = new Upload({
-    name: req.body.name,
-    content: req.body.content,
-  });
 
-  newUpload.save().then((upload) => res.json(upload));
+router.route('/').post(uploadGrid.single('file'), (req, res, next) => {
+  if(req.body) {
+    console.log('recieved body');
+  }
+
+  
+    let newUpload = new Upload({
+      name: req.body.name,
+      content: req.body.content
+    });
+
+    newUpload.save()
+    .then((file) => {
+      res.status(200).json({
+        success: true,
+        file
+      });
+    }).catch(err => res.status(500).json(err));
+
+  // Upload.findOne({name: req.body.name})
+  // .then((image) => {
+  //   console.log(image);
+  //   if(image) {
+  //     return res.status(200).json({
+  //       success: false,
+  //       message: 'File already exists',
+  //     });
+  //   }
+  //     let newUpload = new Upload({
+  //           name: req.body.name,
+  //           content: req.body.content
+  //         });
+
+  //     newUpload.save()
+  //       .then((file) => {
+  //         res.status(200).json({
+  //           success: true,
+  //           file
+  //         });
+  //     }).catch(err => res.status(500).json(err));
+  // }).catch(err => res.status(500).json(err));
 });
+// router.post("/", (req, res) => {
+//   const newUpload = new Upload({
+//     name: req.body.name,
+//     content: req.body.content,
+//   });
+
+//   newUpload.save().then((upload) => res.json(upload));
+// });
 
 // @route PUT api/Upload
 // @desc Edit An Upload
