@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 const axios = require("axios");
 
-function AnnouncementAdder() {
+const AnnouncementAdder = (props) => {
   const [data, setData] = useState([]);
   const AnnouncementPost = () => {
     // var newAnnouncement = {
@@ -31,11 +31,16 @@ function AnnouncementAdder() {
     };
     setData(newData);
   };
-
+  //guest view
+  window.onload = function () {
+    if (!props.isAdmin) {
+      document.getElementsByClassName("input-group")[0].style.display = "none";
+    }
+  };
+  function hideForGuest() {}
   return (
     <div className="Announcement-Adder">
       {/* <input type="submit" value="Add new thing" onClick={showHide} /> */}
-
       <div class="input-group">
         <input
           type="text"
@@ -59,8 +64,8 @@ function AnnouncementAdder() {
           </button>
         </div>
       </div>
+      {hideForGuest()}
     </div>
   );
-}
-
+};
 export default AnnouncementAdder;

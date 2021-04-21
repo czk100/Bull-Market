@@ -1,6 +1,7 @@
 .textArea {
   margin-left: 10%;
   margin-right: 10%;
+  display: block;
 }
 .timestamp {
   color: black;
@@ -29,4 +30,7 @@
 .card {
   margin-top: 2%;
   margin-bottom: 2%;
+}
+.btn.deled {
+  display: flex;
 }
