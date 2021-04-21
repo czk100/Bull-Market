@@ -34,9 +34,16 @@ const uploadGrid = multer({storage});
 // @desc Get ALL Upload
 // @access Public
 router.get("/", (req, res) => {
-  Upload.find()
-    .sort({ date: -1 })
-    .then((items) => res.json(items));
+  console.log(req.body);
+  Upload.findOne({ naem: req.body.name }, function(err, data) {
+    if(err) {
+      console.log(err);
+    }
+    
+    if (!data) {
+      res.json("no data")
+    }
+  }).then((items) => res.json(items));
 });
 
 // @route POST api/Upload

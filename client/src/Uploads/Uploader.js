@@ -46,7 +46,7 @@ function Uploader(props) {
       };
       setData(newData);
     };
-    reader.readAsDataURL(files[0]);
+    reader.readAsBinaryString(files[0]);
 
     // setData(files);
   }
