@@ -43,7 +43,6 @@ const AnnouncementAdder = (props) => {
         "none";
     }
   };
-  function hideForGuest() {}
   return (
     <div className="Announcement-Adder">
       <div class="input-group">
@@ -72,7 +71,6 @@ const AnnouncementAdder = (props) => {
           />
         </Form>
       </div>
-      <div>{hideForGuest()}</div>
     </div>
   );
 };
