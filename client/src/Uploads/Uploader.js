@@ -9,13 +9,13 @@ function Uploader(props) {
   const UploadPost = () => {
     console.log(data);
     axios
-      .post("http://localhost:5000/api/uploads", data)
+      .post(process.env.SERVER_LOCATION + "/api/uploads", data)
       .then(function (response) {
         console.log(response);
       });
     
     axios
-      .post("http://localhost:5000/api/uploadNames", {name : data.name})
+      .post(process.env.SERVER_LOCATION + "/api/uploadNames", {name : data.name})
       .then(function (response) {
         console.log(response);
       });

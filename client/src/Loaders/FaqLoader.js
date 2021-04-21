@@ -8,7 +8,7 @@ const FaqLoader = (props) => {
   const FaqLoad = () => {
     //we need to use a fetch here
     axios
-      .get("http://localhost:5000/api/questions")
+      .get(process.env.SERVER_LOCATION + "/api/questions")
       .then(function (response) {
         console.log(response);
         return response.data;

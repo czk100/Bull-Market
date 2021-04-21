@@ -6,7 +6,7 @@ function TextLoader() {
   const TextLoad = () => {
     //we need to use a fetch here
     axios
-      .get("http://localhost:5000/api/editTexts")
+      .get(process.env.SERVER_LOCATION + "/api/editTexts")
       .then(function (response) {
         console.log(response);
         return response.data;

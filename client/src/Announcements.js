@@ -13,11 +13,10 @@ const Announcements = (props) => {
     <div class="announcements-container">
       <h1 class="display-3">Announcements</h1>
       <div className="announcementTextEditable">
-        {props.isAdmin && 
+        
           <div className="adderFormat">
-            <AnnouncementAdder />
+          {props.isAdmin && <AnnouncementAdder />}
           </div>
-        }
         <div className="messageFormat">
           <AnnouncementLoader isAdmin={props.isAdmin}/>
         </div>

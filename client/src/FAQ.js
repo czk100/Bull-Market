@@ -9,11 +9,11 @@ const FAQ = (props) => {
     <div className="faq-container">
       <h1 class="display-3">Frequently Asked Questions</h1>
       <div className="faqTextEditable">
-        { props.isAdmin &&
+
           <div className="faqFormat">
-            <FaqAdder/>
+          {props.isAdmin &&<FaqAdder/>}
           </div>
-        }
+
         <div className="messageFormat">
           <FaqLoader isAdmin={props.isAdmin} />
         </div>

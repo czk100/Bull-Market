@@ -8,7 +8,7 @@ const AnnouncementLoader = (props) => {
   const AnnouncementLoad = () => {
     //we need to use a fetch here
     axios
-      .get("http://localhost:5000/api/announcements")
+      .get(process.env.SERVER_LOCATION + "/api/announcements")
       .then(function (response) {
         console.log(response);
         return response.data;

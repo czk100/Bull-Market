@@ -9,12 +9,12 @@ const UploadComponent = (props) => {
     var toDelete = { data: { name: props.parentData.name } };
     console.log(toDelete);
     axios
-      .delete("http://localhost:5000/api/uploads", toDelete)
+      .delete(process.env.SERVER_LOCATION + "/api/uploads", toDelete)
       .then(function (response) {
         console.log(response);
       });
     axios
-      .delete("http://localhost:5000/api/uploadNames", {data: {name: props.parentData.name}})
+      .delete(process.env.SERVER_LOCATION + "/api/uploadNames", {data: {name: props.parentData.name}})
       .then(function (response) {
         console.log(response);
       });
@@ -32,7 +32,7 @@ const UploadComponent = (props) => {
 
   // , responseType: 'blob'
   function downloadFunction() {
-    axios.get("http://localhost:5000/api/uploads", {data: {name: props.parentData.name}})
+    axios.get(process.env.SERVER_LOCATION + "/api/uploads", {data: {name: props.parentData.name}})
     .then(function (response) {
       data.name = 'placeholder';
       return response.data;
