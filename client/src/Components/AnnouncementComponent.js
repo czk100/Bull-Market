@@ -3,6 +3,14 @@ import "./AnnouncementComponent.css";
 const axios = require("axios");
 
 const AnnouncementComponent = (props) => {
+  function timeDate(date){
+    var i = date.search("T");
+    if(i == -1){
+      return date;
+    }
+    return date.substring(0, i);
+  }
+
   const [data, setData] = useState([]);
   const deleteAnnouncement = () => {
     var toDelete = { data: { name: props.parentData.name } };
@@ -52,7 +60,7 @@ const AnnouncementComponent = (props) => {
     <div className="Announcement-Component">
       <div class="card">
         <div class="card-header justify-content-between">
-          <code class="timestamp">DATE PLACEHOLDER</code>
+          <code class="timestamp">{props.parentData.date}</code>
           <div class="btn-group">
             <button id="del" class="btn" onClick={deleteAnnouncement}>
               Delete

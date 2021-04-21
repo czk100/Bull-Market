@@ -2,3 +2,59 @@
   margin-top: 2%;
   text-align: center;
 }
+.fb img{
+  width:120px;
+  height: 120px;
+  position:absolute; left: 90px; top:250px
+}
+
+.ig img{
+  width:110px;
+  height: 110px;
+  position:absolute; left:92px; top:400px
+}
+
+.groupme img{
+  width:140px;
+  height: 140px;
+  position:absolute; left:80px; top:540px
+}
+
+.rect_fb{  
+  margin:0 0 10px;
+  padding: 1px;
+  border:3px solid rgb(119, 119, 119);
+  width: 30%;
+  text-align:center;
+  position:absolute; left: 220px; top: 280px
+}
+
+.rect_ig{  
+  margin:0 0 10px;
+  padding: 1px;
+  border:3px solid rgb(119, 119, 119);
+  width: 30%;
+  text-align:center;
+  position:absolute; left: 220px; top: 430px
+}
+
+.rect_groupme{  
+  margin:0 0 10px;
+  padding: 1px;
+  border:3px solid rgb(119, 119, 119);
+  width: 30%;
+  text-align:center;
+  position:absolute; left: 220px; top: 580px
+}
+
+.connectWithUs{
+  position:absolute; left: 861px; top: 240px
+}
+
+.rect_connectWithUs{
+  width: 500px;
+  height: 375px;
+  position:absolute; left: 735px; top: 290px;
+  border:3px solid rgb(119, 119, 119);
+  text-align: center;
+}
