@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const items = require('./routes/api/items');
 const announcements = require('./routes/api/announcements');
 const editTexts = require('./routes/api/editTexts');
+const questions = require('./routes/api/questions');
 
 const app = express();
 
@@ -26,9 +26,9 @@ mongoose
     .then(() => console.log('MongoDB Connected...'))
     .catch(err => console.log(err));
 
-app.use('/api/items', items);
 app.use('/api/announcements', announcements);
 app.use('/api/editTexts', editTexts);
+app.use('/api/questions', questions);
 
 //port configuration
 const port = process.env.PORT || 5000;

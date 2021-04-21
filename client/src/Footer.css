@@ -1,0 +1,24 @@
+.footer-container {
+  max-width: unset;
+  padding: 0%;
+  overflow: hidden;
+  color: white;
+  background-color: white;
+}
+.navbar.navbar-light.foot {
+  background-color: rgb(0, 33, 165);
+  justify-content: left;
+}
+.navbar-brand.foot {
+  color: #007bff;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px;
+}
+.navbar-brand.foot:hover {
+  color: #007bff;
+}
+.nav-link.footer:hover {
+  color: white;
+  background-color: rgb(0, 33, 165);
+}

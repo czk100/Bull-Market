@@ -1,0 +1,32 @@
+.textArea {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.timestamp {
+  color: black;
+  margin-right: 10%;
+}
+.Announcement-Title {
+  color: red;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: chocolate;
+}
+.Announcement-Content {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.card-header {
+  display: flex;
+  align-items: center;
+}
+#del {
+  background-color: darkgray;
+}
+#ed {
+  background-color: darkgray;
+}
+.card {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}

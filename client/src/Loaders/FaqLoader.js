@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import AnnouncementComponent from "../Components/AnnouncementComponent.js";
-import "./AnnouncementLoader.css";
+import FaqComponent from "../Components/FaqComponent.js";
+import "./FaqLoader.css";
 const axios = require("axios");
 
-function AnnouncementLoader() {
+function FaqLoader() {
   const [data, setData] = useState([]);
-  const AnnouncementLoad = () => {
+  const FaqLoad = () => {
     //we need to use a fetch here
     axios
-      .get("http://localhost:5000/api/announcements")
+      .get("http://localhost:5000/api/questions")
       .then(function (response) {
         console.log(response);
         return response.data;
@@ -20,18 +20,18 @@ function AnnouncementLoader() {
   };
 
   useEffect(() => {
-    AnnouncementLoad();
+    FaqLoad();
   }, []);
 
   return (
-    <div className="Announcement">
+    <div className="FAQ">
       <div>
         {data.map(function (d) {
-          return <AnnouncementComponent parentData={d} />;
+          return <FaqComponent parentData={d} />;
         })}
       </div>
     </div>
   );
 }
 
-export default AnnouncementLoader;
+export default FaqLoader;

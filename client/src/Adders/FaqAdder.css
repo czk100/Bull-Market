@@ -1,0 +1,25 @@
+  .add-container {
+    display: none;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .error-container{
+    display: none;
+    margin-left: 10%;
+    margin-right: 10%;
+    color: rgb(214, 26, 26);
+    font-size: 20px;
+  }
+
+  #add {
+    margin-top: 2%;
+    margin-bottom: 0.5%;
+    background-color: darkgray;
+  }
+
+  #Submit {
+    margin-top: 2%;
+    margin-bottom: 0.5%;
+    background-color: darkgray;
+  }
