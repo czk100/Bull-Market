@@ -1,0 +1,16 @@
+.li-files {
+  list-style-type: none;
+}
+.ul-files {
+  list-style-type: none;
+}
+.dropzone-container {
+  align-content: center;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+.dropzone {
+  padding: 2;
+  border: solid black;
+  border-width: 2px;
+}
