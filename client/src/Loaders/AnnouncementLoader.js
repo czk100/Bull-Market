@@ -27,7 +27,7 @@ function AnnouncementLoader() {
     <div className="Announcement">
       <div>
         {data.map(function (d) {
-          return <AnnouncementComponent parentData={d} isAdmin={false} />;
+          return <AnnouncementComponent parentData={d} isAdmin={true} />;
         })}
       </div>
     </div>
