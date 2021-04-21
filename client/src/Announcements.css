@@ -14,10 +14,10 @@ body {
 
 .messageFormat {
   white-space: pre-line;
-  text-align: center;
+  text-align: left;
   overflow-wrap: break-word;
   word-wrap: break-word;
-
+  font-size: x-large;
   /* Instead use this non-standard one: */
   word-break: break-word;
 

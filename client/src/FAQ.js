@@ -10,7 +10,7 @@ function FAQ() {
       <h1 class="display-3">Frequently Asked Questions</h1>
       <div className="faqTextEditable">
         <div className="faqFormat">
-          <FaqAdder />
+          <FaqAdder isAdmin={true} />
         </div>
         <div className="messageFormat">
           <FaqLoader />
