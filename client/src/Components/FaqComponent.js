@@ -33,7 +33,7 @@ const FaqComponent = (props) => {
   useEffect(() => {
     var newData = {
       show: false,
-      d: props.parentData
+      d: props.parentData,
     };
     console.log(props);
     setData(newData);
@@ -45,7 +45,7 @@ const FaqComponent = (props) => {
       d: {
         question: e.target.value,
         answer: data.d.answer,
-      }
+      },
     };
     setData(newData);
   };
@@ -55,11 +55,32 @@ const FaqComponent = (props) => {
       show: data.show,
       d: {
         question: data.d.question,
-        answer:  e.target.value,
-      }
+        answer: e.target.value,
+      },
     };
     setData(newData);
   };
+
+  function hideForGuest() {
+    if (!props.isAdmin && document.getElementsByClassName("deled").length > 0) {
+      for (
+        var i = 0;
+        i < document.getElementsByClassName("deled").length;
+        i++
+      ) {
+        document.getElementsByClassName("deled")[i].style.display = "none";
+      }
+    }
+    if (document.getElementsByClassName("textArea").length > 0) {
+      for (
+        var i = 0;
+        i < document.getElementsByClassName("textArea").length;
+        i++
+      ) {
+        document.getElementsByClassName("textArea")[i].style.display = "none";
+      }
+    }
+  }
 
   return (
     <div className="Faq-Component">
@@ -67,10 +88,10 @@ const FaqComponent = (props) => {
         <div class="card-header justify-content-between">
           <code class="timestamp"></code>
           <div class="btn-group">
-            <button id="del" class="btn" onClick={deleteFaq}>
+            <button id="del" class="btn deled" onClick={deleteFaq}>
               Delete
             </button>
-            <button id="ed" class="btn" onClick={editFaq}>
+            <button id="ed" class="btn deled" onClick={editFaq}>
               Edit
             </button>
           </div>
@@ -78,25 +99,26 @@ const FaqComponent = (props) => {
         <div class="card-body">
           <h5 class="card-title">{props.parentData.question}</h5>
           <p class="card-text">{props.parentData.answer}</p>
-              <div id="Edit Area" className="textArea">
-                <input
-                  type="text"
-                  name="details name"
-                  placeholder="Question"
-                  class="form-control"
-                  value={data.question}
-                  onChange={(e) => handleQuestionChange(e)}
-                />
-                <input
-                  type="text"
-                  name="details content"
-                  placeholder="Answer"
-                  class="form-control"
-                  value={data.answer}
-                  onChange={(e) => handleAnswerChange(e)}
-                />
-              </div>
+          <div id="Edit Area" className="textArea">
+            <input
+              type="text"
+              name="details name"
+              placeholder="Question"
+              class="form-control"
+              value={data.question}
+              onChange={(e) => handleQuestionChange(e)}
+            />
+            <input
+              type="text"
+              name="details content"
+              placeholder="Answer"
+              class="form-control"
+              value={data.answer}
+              onChange={(e) => handleAnswerChange(e)}
+            />
+          </div>
         </div>
+        {hideForGuest()}
       </div>
     </div>
   );

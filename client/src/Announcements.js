@@ -16,6 +16,8 @@ function Announcements() {
           <AnnouncementLoader />
         </div>
       </div>
+      {console.log(document.getElementsByClassName("input-group"))}
+      {console.log(document.getElementsByClassName("input-group")[0])}
     </div>
   );
 }
