@@ -19,6 +19,9 @@ function TextLoader() {
             temp = myJson[i];
           }
         }
+        if(!temp)  {
+          temp = {content: "Missing connection to database"};
+        }
         setData(temp);
       });
   };
