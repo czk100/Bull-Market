@@ -10,15 +10,15 @@ import ExecBoard from "./ExecBoard";
 import Socials from "./Social";
 import FAQ from "./FAQ";
 import Login from "./Login";
-import { useAuth0,  } from "@auth0/auth0-react";
+import Cookies from 'js-cookie';
+// import { useAuth0,  } from "@auth0/auth0-react";
 
 function App() {
 
-  // const isAuthenticated = Cookies.get('auth0.is.authenticated');
-  const { isAuthenticated, isLoading, user } = useAuth0();
-  console.log(isAuthenticated);
-  console.log(isLoading);
-  console.log(user);
+  const isAuthenticated = Cookies.get('auth0.is.authenticated');
+  // const { isAuthenticated, } = useAuth0();
+  // console.log(isAuthenticated);
+  // console.log(useAuth0.isAuthenticated);
   // const { isAuthenticated } = useAuth0();
   // console.log(test);
   return (
