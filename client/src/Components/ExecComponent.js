@@ -79,6 +79,7 @@ const ExecComponent = (props) => {
     setData(newData);
   };
 
+  var elink = "mailto:" + props.parentData.email
   return (
     <div className="Exec-Component">
       <div class="card">
@@ -99,8 +100,16 @@ const ExecComponent = (props) => {
             </td>
             <td>
               <div class="profile-text">
-                <p>Email: {props.parentData.email}</p>
-                <a href>LinkedIn: {props.parentData.email}</a>
+               <h2 class="display-5">
+                <a href= {elink}>
+                    Email: {props.parentData.email}
+                </a>
+               </h2>
+               <h2 class="display-5">
+                <a href= {props.parentData.linkedIn}>
+                    LinkedIn
+                </a>
+               </h2>
               </div>
             </td>
           </table>
