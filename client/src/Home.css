@@ -7,7 +7,7 @@
   padding: 1%;
   margin-left: 10%;
   margin-right: 10%;
-  border-bottom: solid gray;
+  margin-bottom: 1%;
   border-width: 5%;
 }
 
@@ -15,14 +15,20 @@
   padding-top: 4%;
 }
 
-.resource-container {
-  margin-top: 2%;
-}
-
 .bodyTextEditable {
   white-space: pre-line;
   text-align: center;
   font-size: xx-large;
+  margin-top: 1%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.bodyTextEdit {
+  margin-top: 2%;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: block;
 }
 
 .FAQ-redirect:hover {

@@ -21,6 +21,14 @@
   display: flex;
   align-items: center;
 }
+.card-title {
+  text-align: center;
+  font-size: xx-large;
+}
+.card-text {
+  margin-left: 10%;
+  margin-right: 10%;
+}
 #del {
   background-color: darkgray;
 }

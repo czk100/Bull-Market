@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Form, TextArea } from "semantic-ui-react";
 import "./AnnouncementComponent.css";
 const axios = require("axios");
 
@@ -105,14 +106,14 @@ const AnnouncementComponent = (props) => {
               value={data.name}
               onChange={(e) => handleTitleChange(e)}
             />
-            <input
-              type="text"
-              name="details content"
-              placeholder="Content"
-              class="form-control"
-              value={data.content}
-              onChange={(e) => handleContentChange(e)}
-            />
+            <Form>
+              <TextArea
+                placeholder="Content"
+                onChange={(e) => handleContentChange(e)}
+                value={data.content}
+                class="form-control"
+              />
+            </Form>
           </div>
         </div>
         {hideForGuest()}

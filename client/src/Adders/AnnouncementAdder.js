@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Form, TextArea } from "semantic-ui-react";
+import "./AnnouncementAdder.css";
 const axios = require("axios");
 
 const AnnouncementAdder = (props) => {
@@ -35,12 +37,12 @@ const AnnouncementAdder = (props) => {
   window.onload = function () {
     if (!props.isAdmin) {
       document.getElementsByClassName("input-group")[0].style.display = "none";
+      document.getElementsByClassName("content-group")[0].style.display =
+        "none";
     }
   };
-  function hideForGuest() {}
   return (
     <div className="Announcement-Adder">
-      {/* <input type="submit" value="Add new thing" onClick={showHide} /> */}
       <div class="input-group">
         <input
           type="text"
@@ -50,21 +52,23 @@ const AnnouncementAdder = (props) => {
           value={data.name}
           onChange={handleNameChange}
         />
-        <input
-          type="text"
-          name="details"
-          placeholder="Content"
-          class="form-control"
-          value={data.content}
-          onChange={handleContentChange}
-        />
         <div class="input-group-append">
           <button class="btn" onClick={AnnouncementPost}>
             Add new Announcement
           </button>
         </div>
       </div>
-      {hideForGuest()}
+      <div class="content-group">
+        <Form>
+          <TextArea
+            placeholder="Content"
+            name="details"
+            onChange={handleContentChange}
+            value={data.content}
+            class="form-control"
+          />
+        </Form>
+      </div>
     </div>
   );
 };
