@@ -1,0 +1,41 @@
+.add-container {
+display: none;
+margin-left: 10%;
+margin-right: 10%;
+margin-bottom: 3%;
+}
+
+#addCard{
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+
+#add {
+display: none;
+margin-top: 2%;
+margin-bottom: 2%;
+background-color: darkgray;
+}
+
+#Submit {
+margin-top: 0.1%;
+margin-bottom: 0.5%;
+background-color: darkgray;
+}
+
+.btnC {
+    height: 50px;
+    line-height: 30px;  
+    width: 50px;  
+    font-size: xx-large;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: darkgray;
+    color: black;
+    text-align: top;
+    cursor: pointer;
+  }
+
+  #but {
+    margin-bottom: 3%;
+  }
