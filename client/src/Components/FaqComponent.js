@@ -61,26 +61,47 @@ const FaqComponent = (props) => {
     setData(newData);
   };
 
+  function hideForGuest() {
+    var i = 0;
+    if (!props.isAdmin && document.getElementsByClassName("deled").length > 0) {
+      for (
+        i = 0;
+        i < document.getElementsByClassName("deled").length;
+        i++
+      ) {
+        document.getElementsByClassName("deled")[i].style.display = "none";
+      }
+    }
+    if (document.getElementsByClassName("textArea").length > 0) {
+      for (
+        i = 0;
+        i < document.getElementsByClassName("textArea").length;
+        i++
+      ) {
+        document.getElementsByClassName("textArea")[i].style.display = "none";
+      }
+    }
+  }
+
   return (
     <div className="Faq-Component">
       <div class="card">
         <div class="card-header justify-content-between">
           <code class="timestamp"></code>
           <div class="btn-group">
-            {props.isAdmin && <button id="del" class="btn deled" onClick={deleteFaq}>
+            <button id="del" class="btn deled" onClick={deleteFaq}>
               Delete
-            </button>}
-            {props.isAdmin && <button id="ed" class="btn deled" onClick={editFaq}>
+            </button>
+            <button id="ed" class="btn deled" onClick={editFaq}>
               Edit
-            </button> }
+            </button>
           </div>
         </div>
         <div class="card-body">
           <h5 class="card-title">{props.parentData.question}</h5>
           <p class="card-text">{props.parentData.answer}</p>
-          {props.isAdmin && 
           <div id="Edit Area" className="textArea">
-          <input
+            <input
               type="text"
               name="details name"
               placeholder="Question"
@@ -97,8 +118,8 @@ const FaqComponent = (props) => {
               onChange={(e) => handleAnswerChange(e)}
             />
           </div>
-          }
         </div>
+        {hideForGuest()}
       </div>
     </div>
   );
