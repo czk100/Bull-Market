@@ -23,7 +23,7 @@ const ExecComponent = (props) => {
     };
     console.log(toEdit);
     axios
-      .put("api/execBoard", toEdit)
+      .put(process.env.REACT_APP_SERVER_LOCATION + "/api/execBoard", toEdit)
       .then(function (response) {
         console.log(response);
       });
