@@ -10,7 +10,6 @@ import ExecBoard from "./ExecBoard";
 import Socials from "./Social";
 import FAQ from "./FAQ";
 import Login from "./Login";
-import Cookies from 'js-cookie';
 import { useAuth0,  } from "@auth0/auth0-react";
 
 function App() {
