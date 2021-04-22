@@ -1,0 +1,59 @@
+ .textArea {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+ 
+  .card-header {
+    display: flex;
+    align-items: center;
+  }
+
+  .ed {
+    height: 50px;
+    width: 50px; 
+    background-size: 100%;
+    background-image:url("/src/edit.png");
+    border-radius: 50%;
+    margin-left: 10px;
+  }
+  .card {
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  
+  .Position-Title {
+    font-size: 40px;
+  }
+
+  .btnC {
+    height: 50px;
+    line-height: 40px;  
+    width: 50px;  
+    font-size: xx-large;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: darkgray;
+    color: black;
+    text-align: top;
+    cursor: pointer;
+    justify-content: left;
+  }
+
+  .profile-pic {
+    width: 320px;
+    height: 270px;
+    padding: 10px;
+    align-content: center;
+    border: 5px solid black;
+    background-size: 90%;
+    background-image:url("/src/profile.png");
+    margin-left: 100px;
+  }
+
+  .profile-text {
+    width: 500px;
+    height: 270px;
+    padding: 10px;
+    font-size: x-large;
+  }
+
