@@ -1,4 +1,9 @@
 .faq-container {
   margin-top: 2%;
+  margin-bottom: 3%;
   text-align: center;
+}
+.faqTextEditable {
+  margin-left: 10%;
+  margin-right: 10%;
 }

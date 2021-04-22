@@ -12,20 +12,12 @@ body {
   width: auto;
 }
 
-.adderFormat {
-  white-space: pre-line;
-  text-align: center;
-  margin-left: 25%;
-  margin-right: 25%;
-  display: flex;
-}
-
 .messageFormat {
   white-space: pre-line;
-  text-align: center;
+  text-align: left;
   overflow-wrap: break-word;
   word-wrap: break-word;
-
+  font-size: x-large;
   /* Instead use this non-standard one: */
   word-break: break-word;
 

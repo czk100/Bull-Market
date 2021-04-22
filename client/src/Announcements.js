@@ -10,7 +10,7 @@ function Announcements() {
       <h1 class="display-3">Announcements</h1>
       <div className="announcementTextEditable">
         <div className="adderFormat">
-          <AnnouncementAdder />
+          <AnnouncementAdder isAdmin={true} />
         </div>
         <div className="messageFormat">
           <AnnouncementLoader />

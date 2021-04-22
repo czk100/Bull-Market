@@ -2,8 +2,14 @@ import "./App.css";
 import "./Home.css";
 import React from "react";
 import TextLoader from "./Loaders/TextLoader.js";
+import HomeAdder from "./Adders/HomeAdder.js";
 
-function Home() {
+const Home = (props = { isAdmin: true }) => {
+  window.onload = function () {
+    if (!props.isAdmin) {
+      document.getElementsByClassName("bodyTextEdit")[0].style.display = "none";
+    }
+  };
   return (
     <div class="home-container">
       <h1 class="display-3">Home</h1>
@@ -11,6 +17,9 @@ function Home() {
       <div class="description-container">
         <div className="bodyTextEditable">
           <TextLoader />
+        </div>
+        <div class="bodyTextEdit">
+          <HomeAdder />
         </div>
         <div class="FAQ-container">
           <h2 class="display-5">
@@ -21,12 +30,9 @@ function Home() {
           </h2>
         </div>
       </div>
-      <div class="resource-container">
-        <h2 class="display-5">Resources</h2>
-      </div>
     </div>
   );
-}
+};
 
 export default Home;
 //<Preload /> needs to be inserted for the text stuff

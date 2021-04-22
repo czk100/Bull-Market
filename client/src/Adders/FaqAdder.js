@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Form, TextArea } from "semantic-ui-react";
 import "./FaqAdder.css";
 const axios = require("axios");
 
@@ -84,14 +85,15 @@ const FaqAdder = (props) => {
             value={data.question}
             onChange={handleQuestionChange}
           />
-          <input
-            type="text"
-            name="details"
-            placeholder="Answer"
-            class="form-control"
-            value={data.answer}
-            onChange={handleAnswerChange}
-          />
+          <Form>
+            <TextArea
+              placeholder="Answer"
+              name="details"
+              onChange={handleAnswerChange}
+              value={data.answer}
+              class="form-control"
+            />
+          </Form>
           <button id="Submit" class="btn" onClick={FaqPost}>
             Submit
           </button>
