@@ -9,7 +9,7 @@ const ExecComponent = (props) => {
     var toDelete = { data: { name: props.parentData.name } };
     console.log(toDelete);
     axios
-      .delete("http://localhost:5000/api/execBoard", toDelete)
+      .delete(process.env.REACT_APP_SERVER_LOCATION + "/api/execBoard", toDelete)
       .then(function (response) {
         console.log(response);
       });
@@ -23,7 +23,7 @@ const ExecComponent = (props) => {
     };
     console.log(toEdit);
     axios
-      .put("http://localhost:5000/api/execBoard", toEdit)
+      .put("api/execBoard", toEdit)
       .then(function (response) {
         console.log(response);
       });

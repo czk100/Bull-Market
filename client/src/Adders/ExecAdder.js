@@ -15,7 +15,7 @@ function ExecAdder() {
       console.log(newData)
       setData(newData)
       axios
-        .post("http://localhost:5000/api/execBoard", data)
+        .post(process.env.REACT_APP_SERVER_LOCATION + "api/execBoard", data)
         .then(function (response) {
           console.log(response);
         });

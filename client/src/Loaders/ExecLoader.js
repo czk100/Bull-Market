@@ -8,7 +8,7 @@ const ExecLoader = (props) => {
   const ExecLoad = () => {
     //we need to use a fetch here
     axios
-      .get("http://localhost:5000/api/execBoard")
+      .get(process.env.REACT_APP_SERVER_LOCATION + "api/execBoard")
       .then(function (response) {
         console.log(response);
         return response.data;
