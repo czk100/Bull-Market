@@ -8,7 +8,6 @@ const editTexts = require("./routes/api/editTexts");
 const questions = require("./routes/api/questions");
 const uploads = require("./routes/api/uploads");
 const uploadNames = require("./routes/api/uploadNames");
-const ExecBoard = require('./routes/api/execBoard');
 
 const app = express();
 
@@ -43,7 +42,6 @@ app.use("/api/editTexts", editTexts);
 app.use("/api/questions", questions);
 app.use("/api/uploads", uploads);
 app.use("/api/uploadNames", uploadNames);
-app.use('/api/execBoard', ExecBoard);
 
 //port configuration
 const port = process.env.PORT || 5000;
