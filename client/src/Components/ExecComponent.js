@@ -37,7 +37,7 @@ const ExecComponent = (props) => {
     };
     console.log(props);
     setData(newData);
-  }, []);
+  }, [props]);
 
   const handlePositionChange = (e) => {
     var newData = {

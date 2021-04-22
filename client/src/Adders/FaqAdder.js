@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Form, TextArea } from "semantic-ui-react";
 import "./FaqAdder.css";
 const axios = require("axios");

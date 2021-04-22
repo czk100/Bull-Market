@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Form, TextArea } from "semantic-ui-react";
 import "./HomeAdder.css";
-const axios = require("axios");
 
 const HomeAdder = (props) => {
   //guest view
