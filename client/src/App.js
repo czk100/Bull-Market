@@ -11,27 +11,29 @@ import Socials from "./Social";
 import FAQ from "./FAQ";
 import Login from "./Login";
 import Cookies from 'js-cookie';
-import { useAuth0  } from "@auth0/auth0-react";
+import { useAuth0,  } from "@auth0/auth0-react";
 
 function App() {
 
-  const isAuthenticated = Cookies.get('auth0.is.authenticated');
+  // const isAuthenticated = Cookies.get('auth0.is.authenticated');
+  const { isAuthenticated, isLoading, user } = useAuth0();
   console.log(isAuthenticated);
-  console.log(useAuth0.isAuthenticated);
-  var test = useAuth0.isAuthenticated;
-  console.log(test);
+  console.log(isLoading);
+  console.log(user);
+  // const { isAuthenticated } = useAuth0();
+  // console.log(test);
   return (
     <div className="App">
       <Header />
       <div class="site-content">
         <BrowserRouter>
           <Route exact path="/" component={Home} />
-          <Route exact path="/meetings" render={() =>
-              <Meetings isAdmin = {isAuthenticated}/>
-            } />
-          <Route exact path="/announcements" render={() =>
-              <Announcements isAdmin = {isAuthenticated}/>
-            } />
+          <Route exact path="/meetings">
+            <Meetings isAdmin = {isAuthenticated}/>
+          </Route>
+          <Route exact path="/announcements">
+            <Announcements isAdmin = {isAuthenticated}/>
+          </Route>
           <Route exact path="/execboard" render={() =>
               <ExecBoard isAdmin = {isAuthenticated}/>
             } />
