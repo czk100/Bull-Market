@@ -2,26 +2,25 @@ import React, { useState, useEffect } from "react";
 import "./FaqAdder.css";
 const axios = require("axios");
 
-function FaqAdder() {
+const FaqAdder = (props) => {
   const [data, setData] = useState([]);
   const FaqPost = (e) => {
     e.preventDefault();
-    if(data.question !== undefined && data.answer !== undefined){
+    if (data.question !== undefined && data.answer !== undefined) {
       var newData = {
         question: data.question,
         answer: data.answer,
       };
-      setErrorMessage("none")
-      setData(newData)
+      setErrorMessage("none");
+      setData(newData);
       axios
         .post("http://localhost:5000/api/questions", data)
         .then(function (response) {
           console.log(response);
         });
       window.location.reload();
-    }
-    else{
-      setErrorMessage("block")
+    } else {
+      setErrorMessage("block");
     }
   };
 
@@ -45,14 +44,13 @@ function FaqAdder() {
     var x = document.getElementById("Add Area");
     var y = document.getElementById("errorMessage");
     y.style.display = "none";
-    if (x.style.display === ""){
+    if (x.style.display === "") {
       x.style.display = "none";
     }
 
     if (x.style.display === "none") {
       x.style.display = "block";
-    } 
-    else {
+    } else {
       x.style.display = "none";
     }
   };
@@ -60,9 +58,13 @@ function FaqAdder() {
   const setErrorMessage = (show) => {
     var x = document.getElementById("errorMessage");
     x.style.display = show;
-    console.log(x.style.display)
+    console.log(x.style.display);
   };
-
+  window.onload = function () {
+    if (!props.isAdmin) {
+      document.getElementsByClassName("Faq-Adder")[0].style.display = "none";
+    }
+  };
   return (
     <div className="Faq-Adder">
       <button id="add" class="btn" onClick={toggleAdd}>
@@ -75,28 +77,28 @@ function FaqAdder() {
         <form>
           <br></br>
           <input
-              type="text"
-              name="name"
-              placeholder="Question"
-              class="form-control"
-              value={data.question}
-              onChange={handleQuestionChange}
-            />
-            <input
-              type="text"
-              name="details"
-              placeholder="Answer"
-              class="form-control"
-              value={data.answer}
-              onChange={handleAnswerChange}
-            />
-          <button id= "Submit" class="btn" onClick={FaqPost}>
+            type="text"
+            name="name"
+            placeholder="Question"
+            class="form-control"
+            value={data.question}
+            onChange={handleQuestionChange}
+          />
+          <input
+            type="text"
+            name="details"
+            placeholder="Answer"
+            class="form-control"
+            value={data.answer}
+            onChange={handleAnswerChange}
+          />
+          <button id="Submit" class="btn" onClick={FaqPost}>
             Submit
           </button>
         </form>
       </div>
     </div>
   );
-}
+};
 
 export default FaqAdder;

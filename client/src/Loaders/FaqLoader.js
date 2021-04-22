@@ -27,7 +27,7 @@ function FaqLoader() {
     <div className="FAQ">
       <div>
         {data.map(function (d) {
-          return <FaqComponent parentData={d} />;
+          return <FaqComponent parentData={d} isAdmin={false} />;
         })}
       </div>
     </div>
