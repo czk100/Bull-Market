@@ -3,7 +3,7 @@ import ExecComponent from "../Components/ExecComponent.js";
 import "./ExecLoader.css";
 const axios = require("axios");
 
-function ExecLoader() {
+const ExecLoader = (props) => {
   const [data, setData] = useState([]);
   const ExecLoad = () => {
     //we need to use a fetch here
@@ -27,7 +27,7 @@ function ExecLoader() {
     <div className="Exec">
       <div>
         {data.map(function (d) {
-          return <ExecComponent parentData={d} />;
+          return <ExecComponent parentData={d} isAdmin={props.isAdmin}/>;
         })}
       </div>
     </div>

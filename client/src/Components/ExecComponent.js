@@ -88,8 +88,11 @@ const ExecComponent = (props) => {
           <div class="container-fluid justify-content-center">
             <div class="Position-Title">{props.parentData.position + ": " + props.parentData.name}</div>
           </div>
-        <button id="del" class="btnC" onClick={deleteExec}> X</button>
-        <button id="ed" class="ed" onClick={editExec}></button>
+            { props.isAdmin &&
+              <button id="del" class="btnC" onClick={deleteExec}> X</button>}
+              { props.isAdmin &&
+            <button id="ed" class="ed" onClick={editExec}></button>}
+        
         </div>
 
         <div class="card-body">
@@ -113,6 +116,7 @@ const ExecComponent = (props) => {
               </div>
             </td>
           </table>
+            { props.isAdmin &&
             <div class="textArea">
                 <input
                 type="text"
@@ -146,7 +150,8 @@ const ExecComponent = (props) => {
                 value={data.linkedIn}
                 onChange={(e) => handleLinkedInChange(e)}
                 />
-            </div>
+            </div> 
+            }
         </div>
       </div>
     </div>

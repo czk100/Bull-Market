@@ -10,10 +10,10 @@ const ExecBoard = (props) => {
       <h1 class="display-3">Executive Board</h1>
       <div className="execTextEditable">
         <div className="messageFormat">
-          <ExecLoader />
+          <ExecLoader isAdmin={props.isAdmin} />
         </div>
         <div className="execFormat">
-          <ExecAdder />
+          {props.isAdmin && <ExecAdder />}
         </div>
       </div>
     </div>
