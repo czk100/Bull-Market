@@ -41,36 +41,21 @@ const FaqAdder = (props) => {
     setData(newData);
   };
 
-  const toggleAdd = () => {
-    var x = document.getElementById("Add Area");
-    var y = document.getElementById("errorMessage");
-    y.style.display = "none";
-    if (x.style.display === "") {
-      x.style.display = "none";
-    }
-
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-  };
-
   const setErrorMessage = (show) => {
     var x = document.getElementById("errorMessage");
     x.style.display = show;
     console.log(x.style.display);
   };
   window.onload = function () {
+    console.log(document.getElementsByClassName("Faq-Adder")[0]);
+    console.log(props.isAdmin);
     if (!props.isAdmin) {
+      console.log(document.getElementsByClassName("Faq-Adder")[0]);
       document.getElementsByClassName("Faq-Adder")[0].style.display = "none";
     }
   };
   return (
     <div className="Faq-Adder">
-      <button id="add" class="btn" onClick={toggleAdd}>
-        Add FAQ
-      </button>
       <div id="errorMessage" class="error-container">
         Question and/or Answer Missing!
       </div>

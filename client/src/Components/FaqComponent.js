@@ -62,22 +62,24 @@ const FaqComponent = (props) => {
   };
 
   function hideForGuest() {
-    if (!props.isAdmin && document.getElementsByClassName("deled").length > 0) {
-      for (
-        var i = 0;
-        i < document.getElementsByClassName("deled").length;
-        i++
-      ) {
-        document.getElementsByClassName("deled")[i].style.display = "none";
+    if (!props.isAdmin) {
+      if (document.getElementsByClassName("deled").length > 0) {
+        for (
+          var i = 0;
+          i < document.getElementsByClassName("deled").length;
+          i++
+        ) {
+          document.getElementsByClassName("deled")[i].style.display = "none";
+        }
       }
-    }
-    if (document.getElementsByClassName("textArea").length > 0) {
-      for (
-        var i = 0;
-        i < document.getElementsByClassName("textArea").length;
-        i++
-      ) {
-        document.getElementsByClassName("textArea")[i].style.display = "none";
+      if (document.getElementsByClassName("textArea").length > 0) {
+        for (
+          var i = 0;
+          i < document.getElementsByClassName("textArea").length;
+          i++
+        ) {
+          document.getElementsByClassName("textArea")[i].style.display = "none";
+        }
       }
     }
   }
