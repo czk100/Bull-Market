@@ -13,9 +13,9 @@ function Uploader(props) {
       .then(function (response) {
         console.log(response);
       });
-    
+
     axios
-      .post("http://localhost:5000/api/uploadNames", {name : data.name})
+      .post("http://localhost:5000/api/uploadNames", { name: data.name })
       .then(function (response) {
         console.log(response);
       });
@@ -51,10 +51,31 @@ function Uploader(props) {
     // setData(files);
   }
 
+  function enterHandle() {
+    console.log(document.getElementsByClassName("dropzone")[0]);
+    document.getElementsByClassName("dropzone")[0].style.border =
+      "dashed darkgray";
+  }
+
+  function leaveHandle() {
+    document.getElementsByClassName("dropzone")[0].style.border =
+      "solid darkgray";
+  }
+
+  function overHandle() {
+    document.getElementsByClassName("dropzone")[0].style.border =
+      "dashed darkgray";
+  }
+
   return (
     <div>
       <form action="/profile" method="post" enctype="multipart/form-data">
-        <Dropzone onDrop={(files) => handleContentChange(files)}>
+        <Dropzone
+          onDrop={(files) => handleContentChange(files)}
+          onDragEnter={enterHandle}
+          onDragLeave={leaveHandle}
+          onDragOver={overHandle}
+        >
           {({ getRootProps, getInputProps }) => (
             <div className="container">
               <div

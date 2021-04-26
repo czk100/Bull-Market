@@ -11,6 +11,6 @@
 }
 .dropzone {
   padding: 2;
-  border: solid black;
+  border: solid darkgray;
   border-width: 2px;
 }
