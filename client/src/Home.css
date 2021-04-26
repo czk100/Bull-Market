@@ -35,3 +35,8 @@
   color: blue;
   background-color: white;
 }
+
+body {
+  background: url("polyester_lite.png") repeat 0 0;
+  font-family: "Roboto", sans-serif;
+}
